@@ -5,7 +5,6 @@
     state: latest
     name:
       - curl
-      - htop
       - rsync
       - tmux
       - wget
