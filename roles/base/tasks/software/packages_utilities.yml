@@ -3,4 +3,5 @@
   package:
     state: latest
     name:
-      - mc
+      - htop
+      - tmux
