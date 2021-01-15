@@ -28,6 +28,12 @@
   become: true
   roles:
     - workstation
+    
+- hosts: pi
+  tags: pi
+  become: true
+  roles:
+    - pi
 
 - hosts: server
   tags: server
