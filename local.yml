@@ -35,11 +35,11 @@
   roles:
     - pi
 
-- hosts: server
-  tags: server
-  become: true
-  roles:
-    - server
+#- hosts: server
+#  tags: server
+#  become: true
+#  roles:
+#    - server
 
 #   tasks:
 #     - include: tasks/users.yml
@@ -64,15 +64,3 @@
       purge: yes
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
-  - name: send completion alert
-    include_tasks: playbooks/send_completion_alert.yml
-    tags: always
-    when:
-      - task_failed is not defined
-
-  - name: send failure alert
-    include_tasks: playbooks/send_failure_alert.yml
-    tags: always
-    when:
-      - task_failed is defined
-      - task_failed == true
