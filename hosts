@@ -1,10 +1,7 @@
-[all]
-pi3-blue.lan
-10.99.99.5
-
 [pi]
 pi4-black.lan
 
 [workstation]
 pi3-blue.lan
 10.99.99.5
+pi3-blue
