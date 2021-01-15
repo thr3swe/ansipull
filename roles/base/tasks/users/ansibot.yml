@@ -1,0 +1,8 @@
+  - name: users | simone | add sudoers file
+  tags: settings,simone,sudo,system,users
+  copy:
+    src: users/sudoers_ansibot
+    dest: /etc/sudoers.d/ansibot
+    owner: root
+    group: root
+    mode: 0440
