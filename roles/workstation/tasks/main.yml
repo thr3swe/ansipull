@@ -2,5 +2,5 @@
 - include_vars: "{{ ansible_distribution }}.yml"
   tags: always
   
-    ## install software
-  - import_tasks: software/htop.yml
+ # install software
+- import_tasks: software/htop.yml
