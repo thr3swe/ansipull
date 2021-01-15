@@ -1,8 +1,5 @@
-[all]
-localhost
-
 [pi]
-pi4-black
+pi4-black.lan
 
 [workstation]
-pi3-blue
+pi3-blue.lan
