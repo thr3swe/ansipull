@@ -4,9 +4,21 @@
 - block:
   # Make sure users exist on the system
   - import_tasks: users/ansibot.yml
-  
+
   # install software
   - import_tasks: software/packages_utilities.yml
-  
+
   #system setup
   - import_tasks: system_setup/cron.yml
+
+  #clock setup
+  - import_tasks: system_setup/clock.yml
+
+#Fixa locale senare när jag tagit reda på det svenska. Se nuvarande locale med cmd "locale"
+#  - import_tasks: system_setup/locale.yml
+
+  #logging retention 5 days
+  - import_tasks: system_setup/logging.yml
+
+  #logging retention 5 days
+  - import_tasks: system_setup/memory.yml
