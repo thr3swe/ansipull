@@ -9,7 +9,8 @@
   user:
     name: tre
     group: tre
-    groups: adm,ansible,{{ sudo_group }}
+    #deleted sudo variable below
+    groups: adm,ansible,sudo
     state: present
     comment: "Tre LaCroix"
     password: "{{ tre_passwd }}"
