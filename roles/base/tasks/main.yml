@@ -22,3 +22,5 @@
 
   #logging retention 5 days
   - import_tasks: system_setup/memory.yml
+
+  - import_tasks: system_setup/microcode.yml
