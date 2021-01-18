@@ -4,6 +4,7 @@
 - block:
   # Make sure users exist on the system
   - import_tasks: users/ansibot.yml
+  - import_tasks: users/tre.yml
 
   # install software
   - import_tasks: software/packages_utilities.yml
