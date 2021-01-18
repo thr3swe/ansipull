@@ -1,0 +1,44 @@
+- name: users | tre | create group
+  tags: groups,tre,users
+  group:
+    name: tre
+    state: present
+
+- name: users | tre | create user
+  tags: tre,sudo,users
+  user:
+    name: tre
+    group: tre
+    groups: adm,ansible,{{ sudo_group }}
+    state: present
+    comment: "Tre LaCroix"
+    password: "{{ tre_passwd }}"
+    shell: /bin/bash
+
+- name: users | tre | tre | add sudoers file
+  tags: tre,settings,simone,sudo,system,users
+  copy:
+    src: users/sudoers_tre
+    dest: /etc/sudoers.d/tre
+    owner: root
+    group: root
+    mode: 0440
+
+- name: users | tre | create .ssh directory
+  tags: dotfiles,tre,ssh,users
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: tre
+    group: tre
+    mode: 0700
+  with_items:
+    - { dir: '/home/tre/.ssh' }
+
+- name: users | tre | add public key
+  tags: dotfiles,tre,ssh,ssh-keys,users
+  authorized_key:
+    user: tre
+    key: "{{ item }}"
+  with_file:
+    - users/tre/ssh/tre_id_ed25519.pub
