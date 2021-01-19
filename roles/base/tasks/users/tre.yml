@@ -10,9 +10,9 @@
     name: tre
     group: tre
     #deleted sudo variable below
-    groups: adm,ansible,sudo
+    groups: adm,sudo
     state: present
-    comment: "Tre LaCroix"
+    comment: "Tre LaCraft"
     password: "{{ tre_passwd }}"
     shell: /bin/bash
 
