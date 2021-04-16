@@ -25,5 +25,6 @@
   - import_tasks: system_setup/memory.yml
 
   - import_tasks: system_setup/microcode.yml
+  
   rescue:
       - set_fact: task_failed=true
