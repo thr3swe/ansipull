@@ -4,6 +4,7 @@
     password_lock: yes
 
 - name: users | root | create config directories
+  tags: dotfiles,tre,tmux,users,vim,zsh
   file:
     path: /root/{{ item.dir }}
     state: directory
@@ -11,9 +12,20 @@
     group: root
     mode: 0700
   with_items:
-      - { dir: '.vim' }
-      - { dir: '.vim/colors' }
-  tags: dotfiles
+    - { dir: '.bash' }
+    - { dir: '.config' }
+    - { dir: '.config/htop' }
+    - { dir: '.config/mc' }
+    - { dir: '.tmux' }
+    - { dir: '.tmux/config' }
+    - { dir: '.tmux/plugins' }
+    - { dir: '.vim' }
+    - { dir: '.vim/autoload' }
+    - { dir: '.vim/bundle' }
+    - { dir: '.vim/colors' }
+    - { dir: '.vim/ftplugin' }
+    - { dir: '.zsh' }
+
 
 - name: users | root | copy dotfiles
   copy:
