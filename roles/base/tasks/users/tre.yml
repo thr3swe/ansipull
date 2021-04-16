@@ -27,7 +27,7 @@
 
 - name: users | tre | create .ssh directory
   tags: dotfiles,tre,ssh,users
-  file:A
+  file:
     path: "{{ item.dir }}"
     state: directory
     owner: tre
