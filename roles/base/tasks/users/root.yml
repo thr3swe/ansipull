@@ -17,17 +17,67 @@
 
 - name: users | root | copy dotfiles
   copy:
-    src: users/tre/{{ item.src }}
+    src: users/root/{{ item.src }}
     dest: /root/{{ item.dest}}
     owner: root
     group: root
     mode: 0600
   with_items:
-      - { src: 'bash/bashrc', dest: '.bashrc' }
-      - { src: 'bash/bash_profile', dest: '.bash_profile' }
-      - { src: 'bash/profile', dest: '.profile' }
-      - { src: 'tmux/tmux.conf', dest: '.tmux.conf' }
-      - { src: 'vim/vimrc', dest: '.vimrc' }
-      - { src: 'vim/xoria256.vim', dest: '.vim/colors/xoria256.vim' }
-      - { src: 'zsh/zshrc', dest: '.zshrc' }
+    - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
+    - { src: 'bash/bash_profile', dest: '.bash_profile' }
+    - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
+    - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
+    - { src: 'bash/bashrc', dest: '.bashrc' }
+    - { src: 'bash/profile', dest: '.profile' }
+    - { src: 'git/gitconfig', dest: '.gitconfig' }
+    - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
+    - { src: 'inputrc', dest: '.inputrc' }
+    #- { src: 'mc/mc.ini', dest: '.config/mc/ini' }
+    - { src: 'vim/vimrc', dest: '.vimrc' }
+    - { src: 'zsh/zshrc', dest: '.zshrc' }
   tags: dotfiles
+
+- name: users | root | copy vim ftype files
+  tags: dotfiles,root,users,vim
+  copy:
+    src: users/root/vim/{{ item.src }}
+    dest: /home/root/.vim/ftplugin/{{ item.src }}
+    owner: root
+    group: root
+    mode: 0600
+  with_items:
+    - { src: 'cmake.vim' }
+    - { src: 'cpp.vim' }
+    - { src: 'html.vim' }
+    - { src: 'perl.vim' }
+    - { src: 'python.vim' }
+    - { src: 'ruby.vim' }
+    - { src: 'sql.vim' }
+    - { src: 'xml.vim' }
+
+
+- name: users | root | copy vim color files
+  tags: dotfiles,root,users,vim
+  copy:
+    src: users/root/vim/{{ item.src }}
+    dest: /home/root/.vim/colors/{{ item.src }}
+    owner: root
+    group: root
+    mode: 0600
+  with_items:
+    - { src: 'bubblegum-256-dark.vim' }
+    - { src: 'darktango.vim' }
+    - { src: 'jellybeans.vim' }
+    - { src: 'xoria256.vim' }
+    - { src: 'zenburn.vim' }
+
+- name: users | root | install pathogen
+  tags: dotfiles,root,users,vim
+  copy:
+    src: users/root/vim/{{ item.src }}
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0700
+  with_items:
+    - { src: 'pathogen.vim', dest: '/home/root/.vim/autoload/pathogen.vim' }
