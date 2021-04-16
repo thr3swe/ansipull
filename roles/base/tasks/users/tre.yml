@@ -49,8 +49,8 @@
   copy:
     src: users/tre/tmux/tmux.conf
     dest: /home/tre/.tmux.conf
-    owner: jay
-    group: jay
+    owner: tre
+    group: tre
     mode: 0600
   #when: "'server' not in group_names"
 
