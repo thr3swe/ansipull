@@ -27,7 +27,7 @@
 
 - name: users | tre | create .ssh directory
   tags: dotfiles,tre,ssh,users
-  file:
+  file:A
     path: "{{ item.dir }}"
     state: directory
     owner: tre
@@ -43,3 +43,53 @@
     key: "{{ item }}"
   with_file:
     - users/tre/ssh/tre_id_ed25519.pub
+
+- name: users | tre | copy tmux config (server version)
+  tags: dotfiles,users,jay,tmux,users,vim,zsh
+  copy:
+    src: users/tre/tmux/tmux.conf
+    dest: /home/tre/.tmux.conf
+    owner: jay
+    group: jay
+    mode: 0600
+  #when: "'server' not in group_names"
+
+
+#- name: users | jay | clone tmux-completion plugin repository
+#  tags: dotfiles,jay,users,tmux
+#  git:
+#    repo: https://github.com/srsudar/tmux-completion.git
+#    dest: /home/jay/.tmux/plugins/completion
+#    force: yes
+#  notify: update_tmux_plugin_perms
+#
+#- name: users | jay | clone tmux-continuum plugin repository
+#  tags: dotfiles,jay,users,tmux
+#  git:
+#    repo: https://github.com/tmux-plugins/tmux-continuum
+#    dest: /home/jay/.tmux/plugins/continuum
+#    force: yes
+#  notify: update_tmux_plugin_perms
+
+
+- name: users | tre | copy dotfiles
+  tags: dotfiles,users,jay,tmux,users,vim,zsh
+  copy:
+    src: users/tre/{{ item.src }}
+    dest: /home/tre/{{ item.dest }}
+    owner: tre
+    group: tre
+    mode: 0600
+  with_items:
+    - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
+    - { src: 'bash/bash_profile', dest: '.bash_profile' }
+    - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
+    - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
+    - { src: 'bash/bashrc', dest: '.bashrc' }
+    - { src: 'bash/profile', dest: '.profile' }
+    - { src: 'git/gitconfig', dest: '.gitconfig' }
+    #- { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
+    - { src: 'inputrc', dest: '.inputrc' }
+    #- { src: 'mc/mc.ini', dest: '.config/mc/ini' }
+    - { src: 'vim/vimrc', dest: '.vimrc' }
+    - { src: 'zsh/zshrc', dest: '.zshrc' }

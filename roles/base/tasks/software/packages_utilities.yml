@@ -5,3 +5,9 @@
     name:
       - htop
       - tmux
+      - zsh
+      - colordiff
+      - neofetch
+      - net-tools
+      - nmap
+      - curl

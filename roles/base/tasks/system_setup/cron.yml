@@ -1,15 +1,15 @@
-  
+
 #- name: system setup | cron | install cron package
 #  tags: packages,cron
 #  package:
 #    name:
 #      - "{{ cron_package }}"
 #    state: latest
-    
+
 - name: system setup | cron | schedule automatic ansible provisioning
   tags: cron
   cron:
     name: "ansible provision"
     user: ansibot
-    minute: "*/30"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/thr3swe/ansipull.git > /dev/null"
+    minute: "*/55"
+    job: "ansible-pull -o -U https://github.com/thr3swe/ansipull.git > /dev/null"

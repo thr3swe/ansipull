@@ -1,6 +1,9 @@
-[pi]
-pi4-black
-pi3-blue
+[server]
+sela-nwbu
 
-[workstation]
-pop-zitac
+#[pi]
+#pi4-black
+#pi3-blue
+
+#[workstation]
+#pop-zitac
