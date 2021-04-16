@@ -71,6 +71,29 @@
 #    force: yes
 #  notify: update_tmux_plugin_perms
 
+- name: users | tre | create config directories
+  tags: dotfiles,jay,tmux,users,vim,zsh
+  file:
+    path: /home/tre/{{ item.dir }}
+    state: directory
+    owner: tre
+    group: tre
+    mode: 0700
+  with_items:
+    - { dir: '.bash' }
+    - { dir: '.config' }
+    - { dir: '.config/htop' }
+    - { dir: '.config/mc' }
+    - { dir: '.tmux' }
+    - { dir: '.tmux/config' }
+    - { dir: '.tmux/plugins' }
+    - { dir: '.vim' }
+    - { dir: '.vim/autoload' }
+    - { dir: '.vim/bundle' }
+    - { dir: '.vim/colors' }
+    - { dir: '.vim/ftplugin' }
+    - { dir: '.zsh' }
+
 
 - name: users | tre | copy dotfiles
   tags: dotfiles,users,jay,tmux,users,vim,zsh
