@@ -11,3 +11,4 @@
       - net-tools
       - nmap
       - curl
+      - "{{ vim_package }}"
