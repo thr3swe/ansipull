@@ -1,5 +1,5 @@
-#- include_vars: "{{ ansible_distribution }}.yml"
-#  tags: always
+- include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
 
 - block:
   # Make sure users exist on the system
@@ -25,6 +25,6 @@
   - import_tasks: system_setup/memory.yml
 
   - import_tasks: system_setup/microcode.yml
-  
+
   rescue:
       - set_fact: task_failed=true

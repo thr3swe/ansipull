@@ -150,3 +150,14 @@
     - { src: 'jellybeans.vim' }
     - { src: 'xoria256.vim' }
     - { src: 'zenburn.vim' }
+
+- name: users | tre | install pathogen
+  tags: dotfiles,tre,users,vim
+  copy:
+    src: users/tre/vim/{{ item.src }}
+    dest: "{{ item.dest }}"
+    owner: tre
+    group: tre
+    mode: 0700
+  with_items:
+    - { src: 'pathogen.vim', dest: '/home/tre/.vim/autoload/pathogen.vim' }
