@@ -61,7 +61,7 @@
     repo: https://github.com/srsudar/tmux-completion.git
     dest: /home/tre/.tmux/plugins/completion
     force: yes
-  #notify: update_tmux_plugin_perms
+  notify: update_tmux_plugin_perms
 
 - name: users | tre | clone tmux-continuum plugin repository
   tags: dotfiles,tre,users,tmux
@@ -69,7 +69,7 @@
     repo: https://github.com/tmux-plugins/tmux-continuum
     dest: /home/tre/.tmux/plugins/continuum
     force: yes
-  #notify: update_tmux_plugin_perms
+  notify: update_tmux_plugin_perms
 
 - name: users | tre | create config directories
   tags: dotfiles,tre,tmux,users,vim,zsh
