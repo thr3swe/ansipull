@@ -17,7 +17,7 @@
 
 - name: users | root | copy dotfiles
   copy:
-    src: users/root/{{ item.src }}
+    src: users/tre/{{ item.src }}
     dest: /root/{{ item.dest}}
     owner: root
     group: root
@@ -40,7 +40,7 @@
 - name: users | root | copy vim ftype files
   tags: dotfiles,root,users,vim
   copy:
-    src: users/root/vim/{{ item.src }}
+    src: users/tre/vim/{{ item.src }}
     dest: /home/root/.vim/ftplugin/{{ item.src }}
     owner: root
     group: root
@@ -59,7 +59,7 @@
 - name: users | root | copy vim color files
   tags: dotfiles,root,users,vim
   copy:
-    src: users/root/vim/{{ item.src }}
+    src: users/tre/vim/{{ item.src }}
     dest: /home/root/.vim/colors/{{ item.src }}
     owner: root
     group: root
@@ -74,7 +74,7 @@
 - name: users | root | install pathogen
   tags: dotfiles,root,users,vim
   copy:
-    src: users/root/vim/{{ item.src }}
+    src: users/tre/vim/{{ item.src }}
     dest: "{{ item.dest }}"
     owner: root
     group: root
