@@ -1,6 +1,9 @@
 [server]
 sela-nwbu
 
+[windows-ubuntu]
+zlt
+
 #[pi]
 #pi4-black
 #pi3-blue
