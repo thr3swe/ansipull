@@ -12,4 +12,4 @@
       - nmap
       - curl
       - "{{ vim_package }}"
-      - sshpass
+      #- sshpass

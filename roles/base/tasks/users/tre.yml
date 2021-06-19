@@ -44,14 +44,14 @@
   with_file:
     - users/tre/ssh/tre_id_ed25519.pub
 
-- name: users | tre | copy sshpassfile
-  tags: dotfiles,users,tre,tmux,users,vim,zsh
-  copy:
-    src: users/tre/ssh/sshpassfile
-    dest: /home/tre/.ssh/sshpassfile
-    owner: tre
-    group: tre
-    mode: 0600
+#- name: users | tre | copy sshpassfile
+#  tags: dotfiles,users,tre,tmux,users,vim,zsh
+#  copy:
+#    src: users/tre/ssh/sshpassfile
+#    dest: /home/tre/.ssh/sshpassfile
+#    owner: tre
+#    group: tre
+#    mode: 0600
 
 - name: users | tre | copy tmux config (server version)
   tags: dotfiles,users,tre,tmux,users,vim,zsh
