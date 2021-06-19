@@ -53,7 +53,7 @@
   tags: dotfiles,root,users,vim
   copy:
     src: users/tre/vim/{{ item.src }}
-    dest: /home/root/.vim/ftplugin/{{ item.src }}
+    dest: /root/.vim/ftplugin/{{ item.src }}
     owner: root
     group: root
     mode: 0600
@@ -72,7 +72,7 @@
   tags: dotfiles,root,users,vim
   copy:
     src: users/tre/vim/{{ item.src }}
-    dest: /home/root/.vim/colors/{{ item.src }}
+    dest: /root/.vim/colors/{{ item.src }}
     owner: root
     group: root
     mode: 0600
@@ -92,4 +92,4 @@
     group: root
     mode: 0700
   with_items:
-    - { src: 'pathogen.vim', dest: '/home/root/.vim/autoload/pathogen.vim' }
+    - { src: 'pathogen.vim', dest: '/root/.vim/autoload/pathogen.vim' }
