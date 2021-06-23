@@ -1,12 +1,13 @@
 [server]
 sela-nwbu
 zlinode
+pi4-black
 
 [windows-ubuntu]
 zlt
 
 #[pi]
-#pi4-black
+
 #pi3-blue
 
 #[workstation]
