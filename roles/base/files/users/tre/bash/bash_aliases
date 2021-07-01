@@ -11,7 +11,10 @@ alias chmod="chmod -c"
 alias df='df -h -x squashfs -x tmpfs -x devtmpfs'
 alias diff='colordiff'
 alias egrep='egrep --colour=auto'
+alias se="sudo vim -O "
+alias sudo e="sudo vim -O "
 alias e="vim -O "
+alias SE="sudo vim -o "
 alias E="vim -o "
 alias extip='curl icanhazip.com'
 alias grep='grep --color=auto'
