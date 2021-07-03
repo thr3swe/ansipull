@@ -37,6 +37,9 @@ alias vup='vagrant up'
 alias watch='watch -d'
 alias weather='curl wttr.in'
 alias wget='wget -c'
+alias tre='ssh tre@10.3.3.2'
+alias himma='ssh tre@10.3.3.3'
+
 
 ## get top process eating memory
 alias mem5='ps auxf | sort -nr -k 4 | head -5'
